@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nuestra Historia 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin:0;
+  font-family: 'DM Sans', sans-serif;
+  overflow:hidden;
+  background: linear-gradient(180deg,#ffd1e6,#ffe4f0,#fff);
+  text-align:center;
+  color:#1d1d1f;
+}
+
+/* INTRO */
+.intro {
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:black;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:26px;
+  z-index:10;
+  animation:fadeOut 4s forwards;
+}
+
+@keyframes fadeOut {
+  100%{opacity:0; visibility:hidden;}
+}
+
+/* NUBES */
+.nube {
+  position:absolute;
+  width:200px;
+  height:60px;
+  background:#fff0f5;
+  border-radius:50px;
+  opacity:0.6;
+}
+.nube:before,.nube:after{
+  content:"";
+  position:absolute;
+  background:#fff0f5;
+  border-radius:50%;
+}
+.nube:before{width:100px;height:100px;top:-40px;left:20px;}
+.nube:after{width:120px;height:120px;top:-60px;right:20px;}
+
+.izq{left:-300px;animation:nubeDer 60s infinite ease-in-out alternate;}
+.der{right:-300px;animation:nubeIzq 70s infinite ease-in-out alternate;}
+
+@keyframes nubeDer{
+  100%{transform:translate(120vw,30px);}
+}
+@keyframes nubeIzq{
+  100%{transform:translate(-120vw,-20px);}
+}
+
+/* CARTA */
+.carta {
+  display:none;
+  max-width:420px;
+  margin:60px auto;
+  padding:25px;
+
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(20px);
+
+  border-radius:25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+  animation:fade 1.5s;
+}
+
+@keyframes fade {
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1;}
+}
+
+h1 {
+  font-family:'Playfair Display', serif;
+  font-size:32px;
+  font-weight:500;
+  color:#1d1d1f;
+}
+
+p {
+  font-size:15px;
+  color:#3a3a3c;
+  line-height:1.6;
+}
+
+img {
+  width:140px;
+  border-radius:12px;
+  margin:10px;
+}
+
+/* BOTON */
+button {
+  margin-top:15px;
+  padding:12px 20px;
+  background: rgba(255,77,136,0.9);
+  border:none;
+  color:white;
+  border-radius:20px;
+  font-weight:500;
+  transition:0.25s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* SORPRESA */
+#sorpresa {
+  display:none;
+  animation:zoom 0.6s;
+}
+
+@keyframes zoom {
+  from{transform:scale(0.8); opacity:0;}
+  to{transform:scale(1); opacity:1;}
+}
+
+/* PETALOS */
+.petalo {
+  position:absolute;
+  width:12px;
+  height:12px;
+  background:#ff9ecb;
+  border-radius:50%;
+  opacity:0.5;
+  animation:caer 8s linear infinite;
+}
+
+@keyframes caer {
+  0%{transform:translateY(-50px);}
+  100%{transform:translateY(100vh);}
+}
+
+#contador {
+  color:#ff4d88;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="intro">💖 Para el amor de mi vida...</div>
+
+<!-- NUBES -->
+<div class="nube izq" style="top:20%"></div>
+<div class="nube der" style="top:50%"></div>
+
+<!-- PETALOS -->
+<script>
+for(let i=0;i<30;i++){
+ let p=document.createElement("div");
+ p.className="petalo";
+ p.style.left=Math.random()*100+"%";
+ p.style.animationDuration=(5+Math.random()*5)+"s";
+ document.body.appendChild(p);
+}
+</script>
+
+<!-- CARTA -->
+<div class="carta" id="carta">
+
+<h1>Hecho para el  amor de mi life ❤️</h1>
+
+<img src="https://i.pinimg.com/originals/b2/c8/5b/b2c85bda67c05e092c5c0d53aeda26f7.gif">
+
+<p>Para mi Princesa...</p>
+
+<p>
+Nunca terminaré de agradecerle a la vida por haberte puesto en mi camino. Estare agradecido de usted toda la vida por llegar a iluminar mi camino gracias por todos los momentos que hemos pasado buenos y malos pero siempre juntos. Jamas me arrepentire de haberla conocido siempre la amare y quiero una life junto a la suya y poder cumplir todas nuestras metas juntitos. Gracias por todo su amor que me a dado desde el primer day que nos conocemos me enseño que se siente ser amado y ser la primera opción. Gracias por su paciencia y a pesar de todo siempre luche para que lo nuestro funcione. No la defraudare y le mostrare day a day que nunca se equivoco en amarme.   💕
+</p>
+
+<p>
+Cambio mi destino y mi vida...
+</p>
+
+<h3>💕 1 año juntos 💕</h3>
+<div id="contador"></div>
+
+<p>Te amo demasiado 💘</p>
+
+<button onclick="mostrar()">💖 Sorpresa 💖</button>
+
+<div id="sorpresa">
+  <p>💘 Nuestro recuerdo 💘</p>
+  <img src="https://imgur.com/a/yP0ZkgD">
+</div>
+
+</div>
+
+<script>
+// MOSTRAR CARTA
+setTimeout(()=>{
+ document.getElementById("carta").style.display="block";
+},4000);
+
+// CONTADOR
+const inicio=new Date(2025,3,26);
+setInterval(()=>{
+ let d=new Date()-inicio;
+ let dias=Math.floor(d/86400000);
+ let h=Math.floor((d/3600000)%24);
+ let m=Math.floor((d/60000)%60);
+ document.getElementById("contador").innerHTML=
+ dias+" días 💕 "+h+"h 💖 "+m+"m";
+},1000);
+
+// SORPRESA
+function mostrar(){
+ document.getElementById("sorpresa").style.display="block";
+}
+</script>
+
+</body>
+</html>
